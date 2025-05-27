@@ -1,0 +1,7 @@
+public/
+# Ignore Netlify's auto-installed Hugo
+netlify/
+# Ignore other common build artifacts
+.DS_Store
+*.log
+node_modules/

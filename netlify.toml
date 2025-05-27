@@ -1,6 +1,7 @@
 [build]
   publish = "public"
   command = "hugo"
+  image = "ubuntu-focal-20.04"
 
 [context.production.environment]
-  HUGO_VERSION = "0.125.4"
+  HUGO_VERSION = "0.123.7"

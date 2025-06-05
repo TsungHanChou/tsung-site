@@ -1,0 +1,28 @@
+name: Build site
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Get Hugo version
+        id: vars
+        run: |
+          HUGO_VERSION=$(grep -oP 'HUGO_VERSION\s*=\s*"\K[^"]+' netlify.toml)
+          echo "version=$HUGO_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ steps.vars.outputs.version }}
+
+      - name: Build
+        run: hugo --minify

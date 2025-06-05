@@ -175,7 +175,7 @@ params:
       items:
         - "Python"
         - "R"
-        - "Latex"
+        - "LaTeX"
         - "Stata"
  
   # Education
